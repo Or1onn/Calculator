@@ -16,6 +16,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.CodeAnalysis;
 
 namespace Calculate
 {
@@ -24,7 +25,7 @@ namespace Calculate
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,29 +34,41 @@ namespace Calculate
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = new WindowBlureffect(this, AccentState.ACCENT_ENABLE_BLURBEHIND) { BlurOpacity = 100 };
-
-            AddHandler(Button.ClickEvent, new RoutedEventHandler(Button_Click));
+            EventManager.RegisterClassHandler(typeof(Button), Button.ClickEvent, new RoutedEventHandler(Button_Click));
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            
+
             this.DragMove();
         }
-
-        //private void anyButton_Click(object sender, EventArgs e)
-        //{
-        //    MessageBox.Show("Кликнута " + (sender as Button).Name);
-        //}
+        public static double Evaluate(string expression)
+        {
+            System.Data.DataTable table = new System.Data.DataTable();
+            table.Columns.Add("expression", string.Empty.GetType(), expression);
+            System.Data.DataRow row = table.NewRow();
+            table.Rows.Add(row);
+            return double.Parse((string)row["expression"]);
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var senderBtn = sender as Button;
             if (senderBtn != null)
             {
-            textBox.Text += senderBtn!.Content.ToString();
+                textBox.Text += senderBtn!.Content.ToString();
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = Evaluate(textBox.Text.Trim('=').Replace('÷', '/').Replace('×', '*')).ToString();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
         }
     }
 }

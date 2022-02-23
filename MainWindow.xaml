@@ -5,6 +5,7 @@
         AllowsTransparency="True"
         WindowStyle="None"
         ResizeMode="NoResize"
+        BorderBrush="#01000000"
         FontSize="20"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow"
@@ -12,8 +13,7 @@
         MinHeight="400" MinWidth="313" Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
 
-
-    <Grid>
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -30,15 +30,27 @@
             <RowDefinition Height="1*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        
 
-        <TextBox Background="Transparent" Foreground="White" x:Name="textBox">
+
+
+        <TextBox Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="textBox">
             <Grid.Column>0</Grid.Column>
             <Grid.ColumnSpan>4</Grid.ColumnSpan>
             <Grid.Row>1</Grid.Row>
         </TextBox>
-        
+
+        <Button Content="&#215;" Background="Transparent">
+            <Grid.Column>3</Grid.Column>
+            <Grid.Row>0</Grid.Row>
+            <Button.FontSize>25</Button.FontSize>
+        </Button>
+
+        <Button Content="&#9633;" Background="Transparent">
+            <Grid.Column>2</Grid.Column>
+            <Grid.Row>0</Grid.Row>
+            <Button.FontSize>25</Button.FontSize>
+        </Button>
+
         <Button Content="&#49;&#47;&#120;">
             <Grid.Column>0</Grid.Column>
             <Grid.Row>2</Grid.Row>
@@ -57,16 +69,16 @@
             </Button.Background>
         </Button>
 
-        <Button Content="&#8730;&#120;">
+        <Button Content="&#247;">
             <Grid.Column>2</Grid.Column>
             <Grid.Row>2</Grid.Row>
-            <Button.FontSize>20</Button.FontSize>
+            <Button.FontSize>27</Button.FontSize>
             <Button.Background>
                 <SolidColorBrush Color="#000000" Opacity="0.7"/>
             </Button.Background>
         </Button>
 
-        <Button Content="&#9003;">
+        <Button Content="&#9003;" Click="Button_Click_2">
             <Grid.Column>3</Grid.Column>
             <Grid.Row>2</Grid.Row>
             <Button.FontSize>20</Button.FontSize>
@@ -156,7 +168,7 @@
             </Button.Background>
         </Button>
 
-        <Button Content="&#61;">
+        <Button Content="&#61;" Click="Button_Click_1">
             <Grid.Column>3</Grid.Column>
             <Grid.Row>6</Grid.Row>
             <Button.FontSize>25</Button.FontSize>

@@ -49,11 +49,15 @@
                                 <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
                                 <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
                             </Trigger>
+
+                            <Trigger Property="Grid.IsEnabled" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
+
             <Setter Property="FontFamily" Value="Verdana" />
             <Setter Property="Button.Margin" Value="1" />
             <Setter Property="Background">
