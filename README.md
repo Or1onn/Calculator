@@ -7,4 +7,5 @@ NEW version of this best calculator!
 
 3.XAML design was created from 0
 
-![Снимок экрана 2022-02-24 034120](https://user-images.githubusercontent.com/96664220/155429335-f942a300-a9d6-4816-acbf-ffed603ddf4c.png)
+
+![Снимок экрана 2022-02-24 034120](https://user-images.githubusercontent.com/96664220/155429935-a161cd77-b2bd-44f0-a4be-a895176b3311.png)
